@@ -35,7 +35,6 @@ class QRScannerController(http.Controller):
             return request.not_found()
         
         prescription_data = {
-            "id": prescription.id,
             "name": clean(prescription.name),
             "customer": {
                 "name": clean(prescription.customer.name),
@@ -44,7 +43,6 @@ class QRScannerController(http.Controller):
             "valid_until": clean(prescription.valid_until),
             "line_ids": [
                 {
-                    "id": l.id,
                     "product": {
                         "name": clean(l.product.name),
                     },
