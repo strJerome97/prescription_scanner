@@ -26,8 +26,10 @@ class QRScannerController(http.Controller):
     def prescription_detail(self, prescription_id, **kw):
         def clean(value):
             """Convert False/None/'False' into empty string."""
-            if value in (False, None, "False"):
+            if value in (False, None, "False", "false"):
                 return ""
+            if hasattr(value, "strftime"):
+                return value.strftime("%d %b %Y")
             return value
             
         prescription = request.env["prescription.customer.prescription"].sudo().browse(prescription_id)
