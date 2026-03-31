@@ -35,14 +35,12 @@ export class QRScanner extends Component {
     }
 
     onScan(value) {
-        // alert("QR Scanned: " + value);
         this.qr.stop();
         this.handleScannedValue(value);
     }
 
     async handleScannedValue(qrToken) {
         if (this.props.mode === "lookup") {
-            alert("Looking up prescription for token: " + qrToken);
             const result = await rpc("/qr/lookup", { token: qrToken });
             if (result.error) {
                 alert(result.error);
@@ -50,15 +48,12 @@ export class QRScanner extends Component {
                 window.location.href = result.redirect_url;
             }
         } else if (this.props.mode === "sales_order") {
-            alert("Creating sales order for token: " + qrToken);
             const result = await rpc("/qr/create_sales_order", { token: qrToken });
             if (result.error) {
                 alert(result.error);
             } else {
                 window.location.href = result.redirect_url;
             }
-        } else {
-            alert("Scanned QR Token: " + qrToken);
         }
     }
 };
