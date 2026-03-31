@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The design was AI generated -->
+<templates xml:space="preserve">
+    <t t-name="prescription_scanner.PrescriptionInterface">
+        <div class="container py-5">
+            <h2 class="mb-3">
+                Prescription: <t t-esc="prescription.name"/>
+            </h2>
+
+            <p>
+                <strong>Customer:</strong> <t t-esc="prescription.customer.name"/>
+            </p>
+            <p>
+                <strong>Date Prescribed:</strong> <t t-esc="prescription.date"/>
+            </p>
+            <p>
+                <strong>Valid Until:</strong> <t t-esc="prescription.valid_until"/>
+            </p>
+            <p>
+                <strong>Status:</strong> <t t-esc="prescription.status"/>
+            </p>
+
+            <hr/>
+
+            <h4 class="mt-4">Medicines</h4>
+            <table class="table table-bordered mt-2">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="prescription.line_ids" t-as="line" t-key="line.id">
+                        <td><t t-esc="line.product.name"/></td>
+                        <td><t t-esc="line.quantity"/></td>
+                        <td><t t-esc="line.remarks"/></td>
+                    </tr>
+                    <tr t-if="!prescription.line_ids.length">
+                        <td colspan="3" class="text-center">No medicines added.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="button" t-on-click="goToValidate" class="btn btn-primary mt-3">
+                Validate Another QR
+            </button>
+
+        </div>
+    </t>
+</templates>

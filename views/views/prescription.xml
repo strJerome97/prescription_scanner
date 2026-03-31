@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+        <record id="view_prescription_customer_prescription_list" model="ir.ui.view">
+            <field name="name">prescription.customer.prescription.list</field>
+            <field name="model">prescription.customer.prescription</field>
+            <field name="arch" type="xml">
+                <list string="Prescriptions" default_order="date desc">
+                    <field name="name"/>
+                    <field name="customer"/>
+                    <field name="date"/>
+                    <field name="valid_until"/>
+                    <field name="status"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_prescription_customer_prescription_form" model="ir.ui.view">
+            <field name="name">prescription.customer.prescription.form</field>
+            <field name="model">prescription.customer.prescription</field>
+            <field name="arch" type="xml">
+                <form string="Prescriptions">
+                    <xpath expr="//header " position="inside">
+                            <!-- group="prescription_scanner.prescription_admin" -->
+                        <button name="generate_qr_token_on_confirm" 
+                            string="Confirm" 
+                            type="object" 
+                            class="btn btn-primary"
+                            invisible="status != 'draft'"
+                        />
+                        <button name="reset_to_draft" 
+                            string="Reset to Draft" 
+                            type="object" 
+                            class="btn btn-secondary"
+                            invisible="status != 'confirm'"
+                        />
+                    </xpath>
+
+                    <sheet>
+                        <widget name="web_ribbon"
+                            title="Draft"
+                            bg_color="bg-secondary"
+                            invisible="status != 'draft'"/>
+                        <widget name="web_ribbon"
+                            title="Confirmed"
+                            bg_color="bg-success"
+                            invisible="status != 'confirm'"/>
+                        <widget name="web_ribbon"
+                            title="Cancelled"
+                            bg_color="bg-danger"
+                            invisible="status != 'cancel'"/>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="customer"/>
+                                <field name="qr_token" invisible="not qr_token"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                                <field name="valid_until"/>
+                            </group>
+                            <!-- <field name="status"/> -->
+                        </group>
+                        <notebook>
+                            <page string="Medications">
+                                <field name="line_ids">
+                                    <list editable="top">
+                                        <field name="product"/>
+                                        <field name="quantity"/>
+                                        <field name="remarks"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

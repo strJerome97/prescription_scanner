@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The design was AI generated -->
+<templates xml:space="preserve">
+    <t t-name="prescription_scanner.DispenseThankYou">
+        <div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+            <div class="card shadow-lg p-5 text-center" style="max-width:500px; width:100%;">
+
+                <h1 class="text-success mb-3">
+                    ✅ Thank You!
+                </h1>
+
+                <p class="fs-5 mb-2">
+                    Your order has been successfully created.
+                </p>
+
+                <h3 class="fw-bold text-primary">
+                    Reference Number: <t t-esc="props.reference"/>
+                </h3>
+
+                <p class="text-muted mt-3">
+                    Please proceed to the counter for processing.
+                </p>
+
+            </div>
+        </div>
+    </t>
+
+</templates>

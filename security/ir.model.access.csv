@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_prescription_admin,prescription.customer.prescription,model_prescription_customer_prescription,prescription_scanner.prescription_admin,1,1,1,1
+access_prescription_lines_admin,prescription.customer.prescription_lines,model_prescription_customer_prescription_lines,prescription_scanner.prescription_admin,1,1,1,1

@@ -1,0 +1,11 @@
+<odoo>
+    <record id="seq_prescription" model="ir.sequence">
+        <field name="name">Prescription Reference</field>
+        <field name="code">prescription.customer.prescription</field>
+
+        <field name="prefix">PRS</field>
+        <field name="padding">5</field>
+
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

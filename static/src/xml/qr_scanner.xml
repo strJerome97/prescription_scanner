@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="prescription_scanner.QRScanner">
+        <div class="container text-center">
+            <h3>Scan QR Code</h3>
+            <div id="qr-reader" style="width:500px;margin:auto;"></div>
+        </div>
+    </t>
+
+</templates>

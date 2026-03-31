@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <menuitem 
+            id="prescription_menu_root"
+            name="ePrescription"
+        />
+            <!-- action="action_payroll_dashboard" -->
+            <menuitem 
+                id="prescription_prescriptions"
+                name="Prescriptions"
+                parent="prescription_menu_root"
+                sequence="1"
+                action="action_prescription_customer_prescription"
+            />
+    </data>
+</odoo>

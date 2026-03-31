@@ -1,0 +1,16 @@
+<odoo>
+    <template id="prescription_qr_slip">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <h3>Prescription QR - <t t-esc="o.name"/></h3>
+                    <div style="text-align:center;">
+                        <img t-if="o.qr_token"
+                             t-att-src="'/report/barcode/QR/%s?width=200&amp;height=200' % o.qr_token"/>
+                    </div>
+                    <!-- <p t-esc="o.qr_token"/> -->
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

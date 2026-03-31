@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="action_prescription_qr_slip" model="ir.actions.report">
+            <field name="name">Prescription QR</field>
+            <field name="model">prescription.customer.prescription</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">prescription_scanner.prescription_qr_slip</field>
+            <field name="binding_model_id" ref="model_prescription_customer_prescription"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="prescription_scanner.prescription_custom_paper_format"/>
+            <field name="print_report_name">'QR Slip - %s' % (object.name)</field>
+        </record>
+    </data>
+</odoo>

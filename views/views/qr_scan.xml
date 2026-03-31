@@ -1,0 +1,45 @@
+<odoo>
+    <template id="qr_scan_page_validate">
+        <t t-call="web.frontend_layout">
+            <script src="/prescription_scanner/static/src/lib/html5-qrcode.min.js"/>
+            <div id="qr-fullscreen">
+                <owl-component 
+                    name="prescription_scanner.QRScanner" 
+                    props='{"mode": "lookup"}'/>
+            </div>
+        </t>
+    </template>
+    
+    <template id="qr_scan_page_sales_order">
+        <t t-call="web.frontend_layout">
+            <script src="/prescription_scanner/static/src/lib/html5-qrcode.min.js"/>
+            <div id="qr-fullscreen">
+                <owl-component 
+                    name="prescription_scanner.QRScanner" 
+                    props='{"mode":"sales_order"}'/>
+            </div>
+        </t>
+    </template>
+
+    <template id="qr_scan_page_prescription">
+        <t t-call="web.frontend_layout">
+            <script src="/prescription_scanner/static/src/lib/html5-qrcode.min.js"/>
+            <div id="qr-fullscreen">
+                <owl-component 
+                    name="prescription_scanner.PrescriptionInterface"
+                    t-att-props="json.dumps({'data':prescription})"/>
+            </div>
+        </t>
+    </template>
+
+    <template id="qr_scan_page_dispense">
+        <t t-call="web.frontend_layout">
+            <script src="/prescription_scanner/static/src/lib/html5-qrcode.min.js"/>
+            <div id="qr-fullscreen">
+                <owl-component 
+                    name="prescription_scanner.DispenseThankYou"
+                    t-att-props="json.dumps({'reference':reference})"/>
+            </div>
+        </t>
+    </template>
+</odoo>
