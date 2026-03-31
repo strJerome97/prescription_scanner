@@ -52,6 +52,7 @@
                             <group>
                                 <field name="name"/>
                                 <field name="customer"/>
+                                <field name="confirmed_by" invisible="not qr_token" readonly="1"/>
                                 <field name="qr_token" invisible="not qr_token"/>
                             </group>
                             <group>
